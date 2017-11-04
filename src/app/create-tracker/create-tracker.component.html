@@ -1,0 +1,99 @@
+
+<br/><br/>
+<div class="container" >
+  <mat-card style="background-color: #446CB3">
+  <div class="row" >
+    <div class="col-md-4 col-md-offset-4">
+                    <h1 style="color: #fff;">Order Tracking</h1>
+                </div>
+                
+  </div>
+  </mat-card>
+  </div>
+  <br/><br/>
+<div class="container">
+  <mat-card>
+  <mat-card-content>
+    <div >
+        <form #myForm="ngForm" (ngSubmit)="submitForm(myForm)">
+
+            <div class="row">
+                <div class="col-md-4 col-md-offset-4">
+                    <h1>Enter Order Details</h1>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-4 col-md-offset-4">
+                  <mat-form-field>
+                    <input matInput type="text" name="Consignment" [(ngModel)]="Consignment"  placeholder="Consignment"/>
+                    </mat-form-field>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-4 col-md-offset-4">
+                  <mat-form-field>
+                    <input matInput type="text" name="UserDetails" [(ngModel)]="UserDetails"  placeholder="UserDetails"/>
+                  </mat-form-field>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4 col-md-offset-4">
+                  <mat-form-field>
+                    <input type="text" matInput name="ToLocation" [(ngModel)]="ToLocation"  placeholder="ToLocation"/>
+                    </mat-form-field>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4 col-md-offset-4">
+                  <mat-form-field>
+                    <input type="text" matInput name="FromLocation" [(ngModel)]="FromLocation" placeholder="FromLocation"/>
+                  </mat-form-field>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4 col-md-offset-4">
+                    <button class="btn btn-primary" type="submit">Submit</button>
+                </div>
+            </div>
+
+        </form>
+    </div>
+    </mat-card-content>
+</mat-card>
+</div>
+<br/>
+
+<div class="container">
+<mat-card>
+  <mat-card-content>
+    <h2>Order Details:</h2>
+  </mat-card-content>
+</mat-card>
+
+<mat-card>
+ <mat-card-content>
+    <h3>Assets:</h3>
+    <mat-selection-list #shoes >
+      <mat-list-option *ngFor="let shoe of value" (onclick)="log(shoe)">
+        {{shoe}}
+      </mat-list-option>
+    </mat-selection-list>
+
+  </mat-card-content>
+ </mat-card> 
+
+</div>
+
+<div class="container" *ngIf="shoes.selectedOptions.selected.length>0">
+<mat-card>
+  <mat-card-content>
+  <agm-map [latitude]="lat" [longitude]="lng">
+  <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
+</agm-map>
+</mat-card-content>
+<mat-card>
+<div>
+
+
